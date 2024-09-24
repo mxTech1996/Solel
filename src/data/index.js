@@ -1,5 +1,5 @@
 export const pageName = 'Solel';
-export const primaryColor = '#000000';
+export const primaryColor = '#D0AD80FF';
 export const backgroundColor = '#FFFFFF';
 export const makeClearBackground = (color) => {
   return {

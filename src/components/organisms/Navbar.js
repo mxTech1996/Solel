@@ -1,8 +1,8 @@
-"use client";
-import { useRouter } from "next/navigation";
-import { navData } from "@/data";
-import { NavbarV2, theme } from "ecommerce-mxtech";
-import { useInformation } from "@/store/useInformation";
+'use client';
+import { useRouter } from 'next/navigation';
+import { navData } from '@/data';
+import { NavbarV2, theme } from 'ecommerce-mxtech';
+import { useInformation } from '@/store/useInformation';
 
 const { useToken } = theme;
 
@@ -16,19 +16,17 @@ const Navbar = () => {
   return (
     <NavbarV2
       linksProps={{
-        variant: "link-v2",
-        align: "left",
+        variant: 'link-v2',
+        align: 'left',
       }}
-      textColor="black"
-
-
+      textColor='white'
       withLogo={true}
       imageProps={{
         src: dataSite.iconImage,
-        className: "w-36",
+        className: 'w-36',
       }}
       styleTitle={{
-        fontWeight: "bold",
+        fontWeight: 'bold',
         fontSize: 16,
       }}
       links={navData}
@@ -36,17 +34,15 @@ const Navbar = () => {
         router.push(`/product/${product.id}`);
       }}
       buttonCartProps={{
-        onClick: () => router.push("/my-cart"),
-
+        onClick: () => router.push('/my-cart'),
       }}
       buttonContactProps={{
-        onClick: () => router.push("/more-information"),
+        onClick: () => router.push('/more-information'),
       }}
-
       onRedirect={(path) => router.push(path)}
-      onSearch={(value) => { }}
+      onSearch={(value) => {}}
       stylesContentLink={{
-        backgroundColor: "#f7dc6f",
+        backgroundColor: '#F3BC74FF',
       }}
     />
   );

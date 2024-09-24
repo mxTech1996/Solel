@@ -21,7 +21,7 @@ export default function Home() {
   return (
     <main
       style={{
-        backgroundColor: '#F5F4D3FF',
+        backgroundColor: '#FFE8BBFF',
       }}
     >
       <Navbar />
@@ -39,46 +39,41 @@ export default function Home() {
             color: 'black',
           }}
           withShadowText
-          contentThirdSection={() => {
-            return (
-              <div className='flex flex-col gap-10'>
-                <Typography.Title level={2} className='text-center'>
-                  {dataSite.title}
-                </Typography.Title>
-                <Typography.Text className='text-center'>
-                  {dataSite.description}
-                </Typography.Text>
-              </div>
-            );
-          }}
+          contentThirdSection={
+            <div
+              className='flex flex-col'
+              style={{
+                zIndex: 2,
+              }}
+              id='our-services'
+            >
+              <FeaturesV2
+                features={dataSite.services.map((feature) => ({
+                  title: feature.title,
+                  description: feature.description,
+                  src: feature.image,
+                }))}
+                styleTitle={{
+                  color: primaryColor,
+                }}
+                styleDescription={{
+                  color: '#fff',
+                }}
+                onClickButton={() => {
+                  router.push('/more-information');
+                }}
+                gridColumns={3}
+                backgroundColor={primaryColor}
+                borderRadius={10}
+                variant='text'
+                textColorDescription={primaryColor}
+                version='v1'
+              />
+            </div>
+          }
         />
       </div>
       <div className='container mx-auto flex flex-col gap-20 my-24'>
-        <div className='flex flex-col' id='our-services'>
-          <FeaturesV2
-            features={dataSite.services.map((feature) => ({
-              title: feature.title,
-              description: feature.description,
-              src: feature.image,
-            }))}
-            styleTitle={{
-              color: primaryColor,
-            }}
-            styleDescription={{
-              color: '#000',
-            }}
-            onClickButton={() => {
-              router.push('/more-information');
-            }}
-            gridColumns={3}
-            backgroundColor={primaryColor}
-            borderRadius={10}
-            variant='text'
-            textColorDescription={primaryColor}
-            version='v1'
-          />
-        </div>
-
         <div id='courses'>
           {dataSite.products.length > 1 && (
             <ProductSection
